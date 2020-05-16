@@ -1,7 +1,7 @@
 backend:
   name: github
   # change repo to your git repository url
-  repo: W3Layouts/gatsby-starter-delog
+  repo: ZomerVinicius/personal-website
 
 media_folder: static/assets
 public_folder: /assets
@@ -25,21 +25,21 @@ collections:
           - widget: text
             name: description
             label: Description
-            default: ''
+            default: ""
             required: false
           - widget: object
             name: home
             label: Homepage Options
-            fields: 
+            fields:
               - widget: string
                 name: title
                 label: Title
-                default: ''
+                default: ""
                 required: false
               - widget: markdown
                 name: description
                 label: Description
-                default: ''
+                default: ""
                 required: false
           - widget: string
             name: w3l_dom_key
@@ -50,16 +50,11 @@ collections:
   - name: blog
     label: Blog
     folder: _data/blog
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true
     fields:
-      - {
-          label: Template,
-          name: template,
-          widget: hidden,
-          default: BlogPost,
-        }
-      - name: path 
+      - { label: Template, name: template, widget: hidden, default: BlogPost }
+      - name: path
         label: Path
         widget: string
         pattern: [/]
@@ -79,4 +74,3 @@ collections:
           config:
             multiple: false
       - { name: body, label: Body, widget: markdown }
-      
