@@ -12,7 +12,19 @@ const IndexPage = ({
   },
 }) => {
   const Posts = edges
-    .filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    .filter(
+      (edge) =>
+        !!edge.node.frontmatter.date &&
+        edge.node.frontmatter.template === "BlogPost"
+    ) // You can filter your posts based on some criteria
+    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
+
+  const Projects = edges
+    .filter(
+      (edge) =>
+        !!edge.node.frontmatter.date &&
+        edge.node.frontmatter.template === "ProjectPost"
+    ) // You can filter your posts based on some criteria
     .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
 
   return (
@@ -31,7 +43,7 @@ const IndexPage = ({
       <h2>Blog Posts &darr;</h2>
       <div className="grids">{Posts}</div>
       <h2 style={{ marginTop: "30px" }}>Personal projects &darr;</h2>
-      <div className="grids">{Posts}</div>
+      <div className="grids">{Projects}</div>
     </Layout>
   )
 }
@@ -56,6 +68,7 @@ export const pageQuery = graphql`
             path
             title
             thumbnail
+            template
           }
         }
       }
