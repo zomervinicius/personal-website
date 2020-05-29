@@ -1,9 +1,27 @@
-import { graphql } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import Helmet from "react-helmet"
 import Layout from "../components/layout"
 
 const ContactPage = ({ data: { site } }) => {
+  const [status, setStatus] = useState("")
+  const submitForm = (ev) => {
+    ev.preventDefault()
+    const form = ev.target
+    const data = new FormData(form)
+    const xhr = new XMLHttpRequest()
+    xhr.open(form.method, form.action)
+    xhr.setRequestHeader("Accept", "application/json")
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return
+      if (xhr.status === 200) {
+        form.reset()
+        setStatus("SUCCESS")
+      } else {
+        setStatus("ERROR")
+      }
+    }
+    xhr.send(data)
+  }
   return (
     <Layout>
       <Helmet>
@@ -27,31 +45,29 @@ const ContactPage = ({ data: { site } }) => {
         <div>
           <form
             className="form-container"
-            action="https://sendmail.w3layouts.com/SubmitContactForm"
+            onSubmit={submitForm}
+            action="https://formspree.io/xdowaala"
             method="post"
           >
             <div>
-              <label htmlFor="w3lName">Name</label>
-              <input type="text" name="w3lName" id="w3lName" required />
+              <label htmlFor="email">E-mail</label>
+              <input type="email" name="_replyto" required id="email"></input>
             </div>
             <div>
-              <label htmlFor="w3lSender">Email</label>
-              <input type="email" name="w3lSender" id="w3lSender" required />
-            </div>
-            <div>
-              <label htmlFor="w3lSubject">Subject</label>
-              <input type="text" name="w3lSubject" id="w3lSubject" required />
-            </div>
-            <div>
-              <label htmlFor="w3lMessage">Message</label>
-              <textarea name="w3lMessage" id="w3lMessage" required></textarea>
+              <label htmlFor="message">Message</label>
+              <textarea name="message" required id="message"></textarea>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <input
-                type="submit"
-                className="button -primary"
-                style={{ marginRight: 0 }}
-              />
+              {status === "SUCCESS" ? (
+                <p>Thanks!</p>
+              ) : (
+                <input
+                  type="submit"
+                  className="button -primary"
+                  style={{ marginRight: 0 }}
+                />
+              )}
+              {status === "ERROR" && <p>Ooops! There was an error.</p>}
             </div>
           </form>
         </div>
