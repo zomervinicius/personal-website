@@ -5,7 +5,7 @@ date: 2020-05-29T14:15:17.809Z
 title: Fast eslint and prettier setup
 metaDescription: How to setup eslint and prettier using airbnb styles in your
   project in 1 minute
-thumbnail: /assets/1-mqxmnhfadmy1xbntj-xvgg.png
+thumbnail: /assets/1mqxmnhfadmy1xbntj-xvgg_x800.png
 ---
 We all know how boring it is to config eslint and prettier using Airbnb styles.
 
