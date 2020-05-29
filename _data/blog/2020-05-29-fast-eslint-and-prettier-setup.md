@@ -33,4 +33,4 @@ All you need to do to install is:
    * `.eslintrc.js` (or `.eslintrc.json`)
    * `.prettierrc.js` (or `.prettierrc.json`)
 
-   And it's done! How awesome that can be, right?
+And it's done! How awesome that can be, right?
