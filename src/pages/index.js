@@ -1,31 +1,31 @@
-import { graphql } from "gatsby"
-import React from "react"
-import Helmet from "react-helmet"
-import HeroHeader from "../components/heroHeader"
-import Layout from "../components/layout"
-import PostLink from "../components/post-link"
+import { graphql } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
+import HeroHeader from '../components/heroHeader';
+import Layout from '../components/layout';
+import PostLink from '../components/post-link';
 
 const IndexPage = ({
   data: {
     site,
-    allMarkdownRemark: { edges },
-  },
+    allMarkdownRemark: { edges }
+  }
 }) => {
   const Posts = edges
     .filter(
       (edge) =>
         !!edge.node.frontmatter.date &&
-        edge.node.frontmatter.template === "BlogPost"
+        edge.node.frontmatter.template === 'BlogPost'
     ) // You can filter your posts based on some criteria
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
+    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
 
   const Projects = edges
     .filter(
       (edge) =>
         !!edge.node.frontmatter.date &&
-        edge.node.frontmatter.template === "ProjectPost"
+        edge.node.frontmatter.template === 'ProjectPost'
     ) // You can filter your posts based on some criteria
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
+    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
 
   return (
     <Layout>
@@ -42,13 +42,13 @@ const IndexPage = ({
       <HeroHeader />
       <h2>Blog Posts &darr;</h2>
       <div className="grids">{Posts}</div>
-      <h2 style={{ marginTop: "30px" }}>Personal projects &darr;</h2>
+      <h2 style={{ marginTop: '30px' }}>Personal projects &darr;</h2>
       <div className="grids">{Projects}</div>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 export const pageQuery = graphql`
   query indexPageQuery {
     site {
@@ -74,4 +74,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
