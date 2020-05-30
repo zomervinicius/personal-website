@@ -8,7 +8,7 @@ thumbnail: /assets/avengers_vs._x_men_vol_1_1.6.jpg
 ---
 Find marvel characters - [DEMO](https://marvel-character-finder.now.sh)
 
-Tech used:
+Tech stack:
 
 * Redux toolkit
 * Material-UI
