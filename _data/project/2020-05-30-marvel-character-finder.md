@@ -6,7 +6,7 @@ title: Marvel character finder
 metaDescription: Find marvel characters beautifully
 thumbnail: /assets/avengers_vs._x_men_vol_1_1.6.jpg
 ---
-Find marvel characters easily - [DEMO](https://marvel-character-finder.now.sh)
+Find marvel characters - [DEMO](https://marvel-character-finder.now.sh)
 
 Tech used:
 
