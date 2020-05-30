@@ -11,6 +11,7 @@ Find spotify albums - [DEMO](https://spotify-album-finder.now.sh/)
 Tech stack:
 
 * React
+* CRA
 * styled-components
 
   * CSS Grid
