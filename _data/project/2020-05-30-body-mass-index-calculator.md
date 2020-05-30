@@ -10,4 +10,6 @@ Calculate your BMI - [DEMO](https://imcfronttest.zomervinicius.now.sh/)
 
 Tech:
 
-React, Hooks
+* React
+* Hooks
+* CRA
