@@ -6,7 +6,7 @@ title: Body mass index calculator
 metaDescription: Calculate your BMI easily
 thumbnail: /assets/bmi_chart.gif
 ---
-Calculate your BMI - [BMI Calculator](https://imcfronttest.zomervinicius.now.sh/)
+Calculate your BMI - [DEMO](https://imcfronttest.zomervinicius.now.sh/)
 
 Tech:
 
